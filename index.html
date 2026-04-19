@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生机主页</title>
+    <meta
+      name="description"
+      content="生机主页：植物主题的艺术化整页翻页模板，支持左右上下拖拽切页。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-a" aria-hidden="true"></div>
+    <div class="ambient ambient-b" aria-hidden="true"></div>
+
+    <main id="app" data-page="home">
+      <div class="hint-visual-layer" id="hint-visual-layer" aria-hidden="true">
+        <canvas id="canvas-left" class="hint-canvas canvas-left" width="440" height="440"></canvas>
+        <canvas id="canvas-right" class="hint-canvas canvas-right" width="440" height="440"></canvas>
+        <canvas id="canvas-up" class="hint-canvas canvas-up" width="440" height="440"></canvas>
+        <canvas id="canvas-down" class="hint-canvas canvas-down" width="440" height="440"></canvas>
+      </div>
+
+      <section class="page-surface">
+        <p class="page-eyebrow" id="page-eyebrow"></p>
+        <h1 class="page-title" id="page-title"></h1>
+        <p class="page-subtitle" id="page-subtitle"></p>
+
+        <div class="page-panels" id="page-panels" aria-live="polite"></div>
+
+        <section class="sunflower-scene" aria-label="向日葵场景">
+          <div class="sunflower-ground"></div>
+
+          <article class="sunflower stalk-short">
+            <div class="sunflower-head">
+              <div class="petals"></div>
+              <div class="disk"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+          </article>
+
+          <article class="sunflower stalk-tall">
+            <div class="sunflower-head">
+              <div class="petals"></div>
+              <div class="disk"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+          </article>
+
+          <article class="sunflower stalk-mid">
+            <div class="sunflower-head">
+              <div class="petals"></div>
+              <div class="disk"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf leaf-left"></div>
+            <div class="leaf leaf-right"></div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <p>拖拽边缘植物虚影可翻页，或使用方向键切换。</p>
+        </footer>
+      </section>
+
+      <div class="hint-layer" id="hint-layer" aria-label="翻页方向提示">
+        <button class="hint hint-left" data-direction="left" aria-label="左侧翻页提示"></button>
+        <button class="hint hint-right" data-direction="right" aria-label="右侧翻页提示"></button>
+        <button class="hint hint-up" data-direction="up" aria-label="上侧翻页提示"></button>
+        <button class="hint hint-down" data-direction="down" aria-label="下侧翻页提示"></button>
+      </div>
+    </main>
+
+    <canvas id="plant-canvas" aria-hidden="true"></canvas>
+    <div id="theme-overlay" aria-hidden="true"></div>
+
+    <p class="sr-only" aria-live="polite" id="sr-status"></p>
+
+    <script src="plant-growth/shared.js"></script>
+    <script src="plant-growth/sprout.js"></script>
+    <script src="plant-growth/cherry-branch.js"></script>
+    <script src="plant-growth/lavender.js"></script>
+    <script src="plant-growth/sunflower.js"></script>
+    <script src="plant-growth/renderer.js"></script>
+    <script src="plant-growth/index.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
