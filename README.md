@@ -63,7 +63,6 @@
 - plant-growth/ginkgo.js
 - plant-growth/bamboo.js
 - plant-growth/renderer.js
-- plant-growth/index.js
 
 ## Local Preview
 

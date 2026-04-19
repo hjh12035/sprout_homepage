@@ -25,122 +25,107 @@ const growthCreatePlantRenderer =
 
 const PAGES = {
   "home": {
-    "eyebrow": "Seiki Home",
-    "title": "生机主页",
-    "subtitle": "把植物的生长轨迹变成页面切换语言。拖拽边缘虚影时，主题色与枝叶一同显形，再像呼吸一样淡出。",
+    "eyebrow": "Placeholder A",
+    "title": "占位符标题-首页",
+    "subtitle": "占位符副标题-首页。",
     "panels": [
       {
-        "heading": "空间叙事",
-        "text": "每个方向是一种植物人格：向左边缘拖向右、向右边缘拖向左、上边缘向下、下边缘向上。"
+        "heading": "占位符模块 A1",
+        "text": "占位符文本 A1。"
       },
       {
-        "heading": "交互节奏",
-        "text": "拖拽到中心线会完成内容切换；未过线释放自动回缩，过线释放自动完成翻页。下边缘上拖进入向日葵主题翻页。"
+        "heading": "占位符模块 A2",
+        "text": "占位符文本 A2。"
       }
     ]
   },
   "about": {
-    "eyebrow": "About",
-    "title": "植物语言",
-    "subtitle": "以低多边形块面塑造植物的骨架感，保留折面、切角和单色系渐进层次。",
+    "eyebrow": "Placeholder B",
+    "title": "占位符标题-页面B",
+    "subtitle": "占位符副标题-页面B。",
     "panels": [
       {
-        "heading": "形态原则",
-        "text": "叶片采用折平面，茎干由角柱分节堆叠，拒绝真实纹理，保持矢量平涂。"
+        "heading": "占位符模块 B1",
+        "text": "占位符文本 B1。"
       },
       {
-        "heading": "方向交互",
-        "text": "此页可向右边缘拖向左返回主页，也可向左边缘拖向右进入银杏主题页。"
+        "heading": "占位符模块 B2",
+        "text": "占位符文本 B2。"
       }
     ]
   },
   "ginkgo": {
-    "eyebrow": "Ginkgo",
-    "title": "银杏折扇",
-    "subtitle": "左翻进入暖金银杏场域：扇叶以低多边形折面展开，细枝分叉从边缘伸入，叶片沿拖拽方向斜向下飘落。",
+    "eyebrow": "Placeholder C",
+    "title": "占位符标题-页面C",
+    "subtitle": "占位符副标题-页面C。",
     "panels": [
       {
-        "heading": "形态语法",
-        "text": "银杏叶采用宽弧扇形与中心缺刻结构，叶脉用接近叶色的浅线暗示放射分叉，保持几何风格而不突兀。"
+        "heading": "占位符模块 C1",
+        "text": "占位符文本 C1。"
       },
       {
-        "heading": "导航关系",
-        "text": "在本页向右边缘拖向左可返回“植物语言”页；拖拽时枝干与叶片同步显影，并保持暖金到褐金的层次。"
+        "heading": "占位符模块 C2",
+        "text": "占位符文本 C2。"
       }
     ]
   },
   "gallery": {
-    "eyebrow": "Gallery",
-    "title": "枝影画廊",
-    "subtitle": "樱花花枝以棱角枝节延展，花团在拖拽进度中分批显影，形成带结构感的绽放。",
+    "eyebrow": "Placeholder D",
+    "title": "占位符标题-页面D",
+    "subtitle": "占位符副标题-页面D。",
     "panels": [
       {
-        "heading": "色彩绑定",
-        "text": "樱枝方向绑定粉红系主题色，色层先聚合后消隐，确保翻页阶段有明确视觉峰值。"
+        "heading": "占位符模块 D1",
+        "text": "占位符文本 D1。"
       },
       {
-        "heading": "场景留白",
-        "text": "背景维持高留白与轻雾块，强调植物生长路径在过渡中的运动质感。"
+        "heading": "占位符模块 D2",
+        "text": "占位符文本 D2。"
       }
     ]
   },
   "poem": {
-    "eyebrow": "Poem",
-    "title": "薰衣草短诗",
-    "subtitle": "上翻进入轻紫场域，花穗沿轴线渐次点亮，像风把句子一节一节推向远处。",
+    "eyebrow": "Placeholder E",
+    "title": "占位符标题-页面E",
+    "subtitle": "占位符副标题-页面E。",
     "panels": [
       {
-        "heading": "动态结构",
-        "text": "主茎先长，花穗后现。每一组花穗都由几何菱形构成，遵循低多边形平涂语法。"
+        "heading": "占位符模块 E1",
+        "text": "占位符文本 E1。"
       },
       {
-        "heading": "导航关系",
-        "text": "此页可从下边缘向上拖返回主页，也支持方向键快速切换。"
+        "heading": "占位符模块 E2",
+        "text": "占位符文本 E2。"
       }
     ]
   },
   "sunflower": {
-    "eyebrow": "Sunflower",
-    "title": "向日葵",
-    "subtitle": "这是主页下方的主题页，橙黄单色系以几何向日葵为主视觉，保留低多边形拼贴与平涂层次。",
+    "eyebrow": "Placeholder F",
+    "title": "占位符标题-页面F",
+    "subtitle": "占位符副标题-页面F。",
     "panels": [
       {
-        "heading": "主题方向",
-        "text": "从主页下边缘上拖进入该页，橙黄遮罩与向日葵生长同步出现，形成暖色翻页峰值。"
+        "heading": "占位符模块 F1",
+        "text": "占位符文本 F1。"
       },
       {
-        "heading": "导航关系",
-        "text": "在本页从上边缘下拖可回到主页；继续从下边缘上拖可进入竹子主题翻页。"
+        "heading": "占位符模块 F2",
+        "text": "占位符文本 F2。"
       }
     ]
   },
   "bamboo": {
-    "eyebrow": "Bamboo",
-    "title": "竹影风廊",
-    "subtitle": "向下翻入竹子场域，节间与叶片以低多边形折面层叠生长，形成更克制清爽的东方植物节奏。",
+    "eyebrow": "Placeholder G",
+    "title": "占位符标题-页面G",
+    "subtitle": "占位符副标题-页面G。",
     "panels": [
       {
-        "heading": "形态语言",
-        "text": "竹秆强调节间与分段粗细变化，叶片以细长折片成簇展开，保持几何平涂而不丢失竹子的挺拔感。"
+        "heading": "占位符模块 G1",
+        "text": "占位符文本 G1。"
       },
       {
-        "heading": "导航关系",
-        "text": "在本页从上边缘下拖可回到向日葵翻页场，交互阈值、回拉与覆盖逻辑与其他方向保持一致。"
-      }
-    ]
-  },
-  "new_page": {
-    "eyebrow": "New",
-    "title": "新页面",
-    "subtitle": "这里是新页面描述。",
-    "panels": [
-      {
-        "heading": "模块一",
-        "text": "描述"
-      },
-      {
-        "heading": "模块二",
-        "text": "描述"
+        "heading": "占位符模块 G2",
+        "text": "占位符文本 G2。"
       }
     ]
   }
@@ -152,6 +137,11 @@ const ROUTES = {
       "targetPage": "about",
       "motif": "sprout",
       "themeColor": "#9FD97A"
+    },
+    "right": {
+      "targetPage": "gallery",
+      "motif": "cherry_branch",
+      "themeColor": "#F2A7C2"
     },
     "up": {
       "targetPage": "poem",
@@ -181,11 +171,6 @@ const ROUTES = {
       "targetPage": "about",
       "motif": "ginkgo",
       "themeColor": "#D9A73A"
-    },
-    "up": {
-      "targetPage": "new_page",
-      "motif": "cherry_branch",
-      "themeColor": "#F2A7C2"
     }
   },
   "gallery": {
@@ -219,23 +204,6 @@ const ROUTES = {
       "targetPage": "sunflower",
       "motif": "bamboo",
       "themeColor": "#6FA85E"
-    }
-  },
-  "new_page": {
-    "right": {
-      "targetPage": "poem",
-      "motif": "ginkgo",
-      "themeColor": "#D9A73A"
-    },
-    "left": {
-      "targetPage": "gallery",
-      "motif": "sunflower",
-      "themeColor": "#F2A02D"
-    },
-    "up": {
-      "targetPage": "bamboo",
-      "motif": "lavender",
-      "themeColor": "#A788E8"
     }
   }
 };

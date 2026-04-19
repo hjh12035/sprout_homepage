@@ -261,13 +261,13 @@ def main() -> None:
     with tab_pages:
         st.markdown("### 新增页面")
         with st.form("add_page_form"):
-            new_key = st.text_input("页面 key（英文小写，示例：new_page）")
-            new_eyebrow = st.text_input("Eyebrow", value="New")
-            new_title = st.text_input("标题", value="新页面")
-            new_subtitle = st.text_area("副标题", value="这里是新页面描述。", height=80)
+            new_key = st.text_input("页面 key（英文小写，示例：placeholder_page）")
+            new_eyebrow = st.text_input("Eyebrow", value="Placeholder")
+            new_title = st.text_input("标题", value="占位符标题")
+            new_subtitle = st.text_area("副标题", value="占位符副标题。", height=80)
             panel_blob = st.text_area(
                 "Panels（每行：heading|text）",
-                value="模块一|描述\n模块二|描述",
+                value="占位符模块 A|占位符文本 A\n占位符模块 B|占位符文本 B",
                 height=90
             )
             add_page_submit = st.form_submit_button("新增页面")
