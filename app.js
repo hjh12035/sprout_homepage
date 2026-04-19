@@ -52,7 +52,23 @@ const PAGES = {
       },
       {
         heading: "方向交互",
-        text: "此页可向右边缘拖向左返回主页，生长枝条会覆盖更大区域后再淡出。"
+        text: "此页可向右边缘拖向左返回主页，也可向左边缘拖向右进入银杏主题页。"
+      }
+    ]
+  },
+  ginkgo: {
+    eyebrow: "Ginkgo",
+    title: "银杏折扇",
+    subtitle:
+      "左翻进入暖金银杏场域：扇叶以低多边形折面展开，细枝分叉从边缘伸入，叶片沿拖拽方向斜向下飘落。",
+    panels: [
+      {
+        heading: "形态语法",
+        text: "银杏叶采用宽弧扇形与中心缺刻结构，叶脉用接近叶色的浅线暗示放射分叉，保持几何风格而不突兀。"
+      },
+      {
+        heading: "导航关系",
+        text: "在本页向右边缘拖向左可返回“植物语言”页；拖拽时枝干与叶片同步显影，并保持暖金到褐金的层次。"
       }
     ]
   },
@@ -114,7 +130,11 @@ const ROUTES = {
     down: { targetPage: "sunflower", motif: "sunflower", themeColor: "#F2A02D" }
   },
   about: {
+    left: { targetPage: "ginkgo", motif: "ginkgo", themeColor: "#D9A73A" },
     right: { targetPage: "home", motif: "sprout", themeColor: "#9FD97A" }
+  },
+  ginkgo: {
+    right: { targetPage: "about", motif: "ginkgo", themeColor: "#D9A73A" }
   },
   gallery: {
     left: { targetPage: "home", motif: "cherry_branch", themeColor: "#F2A7C2" }
@@ -129,6 +149,7 @@ const ROUTES = {
 
 const MOTIF_LABEL = {
   sprout: "嫩芽",
+  ginkgo: "银杏",
   cherry_branch: "樱枝",
   lavender: "薰衣草",
   sunflower: "向日葵"
