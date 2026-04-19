@@ -1,2 +1,4 @@
 .github/
 art design/
+.venv/
+__pycache__/
