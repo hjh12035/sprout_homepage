@@ -134,131 +134,9 @@ body {
   font-size: 14px;
 }
 
-.sunflower-scene {
-  display: none;
-  position: relative;
-  margin-top: 8px;
-  height: 180px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 205, 120, 0.18), rgba(255, 176, 78, 0.34));
-  overflow: hidden;
-}
-
-#app[data-page="sunflower"] .sunflower-scene {
-  display: block;
-}
-
 #app[data-page="sunflower"] .page-surface {
   background: linear-gradient(160deg, rgba(255, 241, 215, 0.86), rgba(255, 214, 154, 0.72));
   border-color: rgba(230, 157, 56, 0.36);
-}
-
-.sunflower-ground {
-  position: absolute;
-  left: -8%;
-  right: -8%;
-  bottom: -26px;
-  height: 94px;
-  background: linear-gradient(180deg, rgba(215, 142, 52, 0.62), rgba(163, 99, 26, 0.72));
-  border-radius: 50%;
-}
-
-.sunflower {
-  position: absolute;
-  bottom: 36px;
-  width: 92px;
-  height: 132px;
-}
-
-.stalk-short {
-  left: 14%;
-}
-
-.stalk-tall {
-  left: 44%;
-  bottom: 22px;
-  transform: scale(1.1);
-}
-
-.stalk-mid {
-  right: 14%;
-}
-
-.sunflower-head {
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  width: 58px;
-  height: 58px;
-  transform: translateX(-50%);
-}
-
-.petals {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #ffd14c 0deg 20deg,
-    #ffb835 20deg 40deg,
-    #ffce4d 40deg 60deg,
-    #ffae2f 60deg 80deg,
-    #ffd14c 80deg 100deg,
-    #ffba37 100deg 120deg,
-    #ffd14c 120deg 140deg,
-    #ffaf32 140deg 160deg,
-    #ffd14c 160deg 180deg,
-    #ffb432 180deg 200deg,
-    #ffd14c 200deg 220deg,
-    #ffba36 220deg 240deg,
-    #ffd14c 240deg 260deg,
-    #ffb532 260deg 280deg,
-    #ffd14c 280deg 300deg,
-    #ffad2f 300deg 320deg,
-    #ffd14c 320deg 340deg,
-    #ffb938 340deg 360deg
-  );
-  clip-path: polygon(50% 0%, 62% 14%, 78% 6%, 80% 24%, 95% 24%, 88% 40%, 100% 50%, 88% 60%, 95% 76%, 80% 76%, 78% 94%, 62% 86%, 50% 100%, 38% 86%, 22% 94%, 20% 76%, 5% 76%, 12% 60%, 0% 50%, 12% 40%, 5% 24%, 20% 24%, 22% 6%, 38% 14%);
-}
-
-.disk {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 26px;
-  height: 26px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #8e4f11 0%, #6a3608 65%, #4f2504 100%);
-}
-
-.stem {
-  position: absolute;
-  left: 50%;
-  top: 52px;
-  width: 12px;
-  height: 86px;
-  transform: translateX(-50%);
-  background: linear-gradient(180deg, #9aae3f, #7a8f2d);
-  clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%);
-}
-
-.leaf {
-  position: absolute;
-  width: 26px;
-  height: 18px;
-  top: 84px;
-  background: linear-gradient(135deg, #b6ca4f, #7d9231);
-}
-
-.leaf-left {
-  left: 20px;
-  clip-path: polygon(0 52%, 100% 0, 88% 100%);
-}
-
-.leaf-right {
-  right: 20px;
-  clip-path: polygon(0 0, 100% 52%, 12% 100%);
 }
 
 .page-switching .page-surface {
@@ -441,18 +319,6 @@ body {
 
   .hint {
     background: transparent;
-  }
-
-  .sunflower-scene {
-    height: 156px;
-  }
-
-  .sunflower {
-    transform: scale(0.88);
-  }
-
-  .stalk-tall {
-    transform: scale(0.96);
   }
 }
 
