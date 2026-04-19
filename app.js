@@ -105,10 +105,10 @@ const PAGES = {
     ]
   },
   sunflower: {
-    eyebrow: "Sunflower Flip",
-    title: "向日葵翻页场",
+    eyebrow: "Sunflower",
+    title: "向日葵",
     subtitle:
-      "这是主页下方的翻页主题页，橙黄单色系以几何向日葵为主视觉，保留低多边形拼贴与平涂层次。",
+      "这是主页下方的主题页，橙黄单色系以几何向日葵为主视觉，保留低多边形拼贴与平涂层次。",
     panels: [
       {
         heading: "主题方向",
