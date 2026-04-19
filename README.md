@@ -74,6 +74,33 @@ Example:
 1. python -m http.server 8765
 2. Open http://127.0.0.1:8765
 
+## Python Page Editor
+
+This workspace now includes a Python visual editor for page graph management:
+
+- File: page_editor.py
+- Purpose:
+  - Read current structure from app.js (PAGES / ROUTES / MOTIF_LABEL).
+  - Visualize page connections as a graph.
+  - Add, edit, delete pages.
+  - Add, edit, delete directional routes.
+  - Save changes back to app.js in real time.
+
+### Install
+
+1. python -m pip install -r requirements-page-editor.txt
+
+### Run
+
+1. streamlit run page_editor.py
+2. Open the local URL shown by Streamlit (usually http://localhost:8501)
+
+### Notes
+
+- Editing operations write directly to app.js.
+- Deleting a page also removes incoming routes that target that page.
+- If you edit app.js manually, click "从文件重新加载" inside the editor.
+
 ## Deploy To GitHub Pages
 
 1. Push this repository to GitHub.
