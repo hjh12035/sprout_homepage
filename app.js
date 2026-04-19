@@ -5,7 +5,13 @@ const growthOverlayOpacity =
     ? growthApi.overlayOpacity
     : (progress) => {
         const p = Math.min(1, Math.max(0, Number(progress) || 0));
-        return p <= 0.5 ? p * 2 : (1 - p) * 2;
+        if (p <= 0.3) {
+          return p / 0.3;
+        }
+        if (p >= 0.7) {
+          return (1 - p) / 0.3;
+        }
+        return 1;
       };
 
 const growthCreatePlantRenderer =

@@ -26,23 +26,25 @@
 
     const petalColors = [
       shared.lighten(color, 18),
-      shared.lighten(color, 10),
-      shared.darken(color, 4),
+      shared.lighten(color, 12),
+      shared.darken(color, 2),
       shared.lighten(color, 14),
-      shared.darken(color, 2)
+      shared.darken(color, 4),
+      shared.lighten(color, 8),
+      shared.darken(color, 8)
     ];
 
-    for (let index = 0; index < 5; index += 1) {
+    for (let index = 0; index < 7; index += 1) {
       ctx.save();
-      ctx.rotate((Math.PI * 2 * index) / 5);
+      ctx.rotate((Math.PI * 2 * index) / 7);
       shared.fillPolygon(
         ctx,
         [
           { x: 0, y: 0 },
-          { x: 10, y: -3 },
-          { x: 16, y: 0 },
-          { x: 10, y: 4 },
-          { x: 3, y: 3 }
+          { x: 12, y: -4 },
+          { x: 20, y: 0 },
+          { x: 12, y: 5 },
+          { x: 2, y: 4 }
         ],
         petalColors[index]
       );
@@ -69,50 +71,60 @@
     const length = (68 + 250 * p) * sizeBoost;
     const branch = branchNodePath(length, 11 * sizeBoost, p);
     const palette = [
-      shared.darken(color, 24),
-      shared.darken(color, 12),
-      color,
-      shared.lighten(color, 10)
+      "#5c3317",
+      "#6a3f20",
+      "#7f5236",
+      "#93704f"
     ];
 
     shared.drawFacetedRibbon(ctx, branch.nodes, branch.widths, palette);
 
-    const offshootCount = Math.floor(3 * p);
+    const offshootCount = Math.floor(4 * p);
     for (let index = 0; index < offshootCount; index += 1) {
-      const anchorIndex = 3 + index * 2;
+      const anchorIndex = 2 + index * 2;
       const anchor = branch.nodes[anchorIndex];
       if (!anchor) {
         continue;
       }
 
-      const offshootLength = (28 + index * 14 + p * 28) * sizeBoost;
+      const offshootLength = (20 + index * 10 + p * 22) * sizeBoost;
       const branchLift = index % 2 === 0 ? -1 : 1;
       const offshootNodes = [
         { x: anchor.x, y: anchor.y },
-        { x: anchor.x + offshootLength * 0.4, y: anchor.y + branchLift * 10 * sizeBoost },
-        { x: anchor.x + offshootLength, y: anchor.y + branchLift * 18 * sizeBoost }
+        { x: anchor.x + offshootLength * 0.32, y: anchor.y + branchLift * 8 * sizeBoost },
+        { x: anchor.x + offshootLength, y: anchor.y + branchLift * 10 * sizeBoost }
       ];
-      const offshootWidths = [7 - index * 0.6, 6 - index * 0.4, 4.5];
+      const offshootWidths = [10 - index * 0.8, 8 - index * 0.4, 6];
 
       shared.drawFacetedRibbon(ctx, offshootNodes, offshootWidths, [
-        shared.darken(color, 20),
-        shared.lighten(color, 8)
+        "#4f2712",
+        "#8f5d42"
       ]);
     }
 
-    if (p > 0.2) {
-      const blossomProgress = shared.easeOutCubic((p - 0.2) / 0.8);
-      drawFacetFlower(ctx, length * 0.34, -18 * sizeBoost, 0.48 + blossomProgress * 0.72, color);
+    if (p > 0.16) {
+      const blossomProgress = shared.easeOutCubic((p - 0.16) / 0.84);
+      drawFacetFlower(ctx, length * 0.16, -10 * sizeBoost, 0.54 + blossomProgress * 0.62, color);
     }
 
-    if (p > 0.4) {
-      const blossomProgress = shared.easeOutCubic((p - 0.4) / 0.6);
-      drawFacetFlower(ctx, length * 0.62, 18 * sizeBoost, 0.4 + blossomProgress * 0.6, color);
+    if (p > 0.34) {
+      const blossomProgress = shared.easeOutCubic((p - 0.34) / 0.66);
+      drawFacetFlower(ctx, length * 0.34, 10 * sizeBoost, 0.5 + blossomProgress * 0.64, color);
     }
 
-    if (p > 0.62) {
-      const blossomProgress = shared.easeOutCubic((p - 0.62) / 0.38);
-      drawFacetFlower(ctx, length * 0.84, -16 * sizeBoost, 0.34 + blossomProgress * 0.58, color);
+    if (p > 0.52) {
+      const blossomProgress = shared.easeOutCubic((p - 0.52) / 0.48);
+      drawFacetFlower(ctx, length * 0.52, -12 * sizeBoost, 0.44 + blossomProgress * 0.58, color);
+    }
+
+    if (p > 0.68) {
+      const blossomProgress = shared.easeOutCubic((p - 0.68) / 0.32);
+      drawFacetFlower(ctx, length * 0.68, 8 * sizeBoost, 0.38 + blossomProgress * 0.52, color);
+    }
+
+    if (p > 0.82) {
+      const blossomProgress = shared.easeOutCubic((p - 0.82) / 0.18);
+      drawFacetFlower(ctx, length * 0.82, -4 * sizeBoost, 0.34 + blossomProgress * 0.5, color);
     }
   }
 

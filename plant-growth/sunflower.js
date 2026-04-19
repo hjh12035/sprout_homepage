@@ -3,18 +3,25 @@
 
   function drawFacetStem(ctx, progress, color, sizeBoost) {
     const p = shared.easeOutCubic(progress);
-    const length = (64 + 212 * p) * sizeBoost;
+    const length = (84 + 240 * p) * sizeBoost;
     const nodes = [];
     const widths = [];
+    const baseWidth = 18 + p * 6;
+    const tipWidth = 8 + p * 3;
 
-    for (let index = 0; index <= 9; index += 1) {
-      const t = index / 9;
-      const bend = Math.sin(t * 2.6) * (4.2 + (1 - t) * 2.4) * p;
+    for (let index = 0; index <= 11; index += 1) {
+      const t = index / 11;
+      const bend = (
+        Math.sin(t * Math.PI * 1.9 - 0.4) * (7.2 + (1 - t) * 4.0) +
+        Math.sin(t * Math.PI * 4.2) * 1.6
+      ) * p;
       nodes.push({
         x: length * t,
         y: bend
       });
-      widths.push(8.4 - t * 2.4 + p * 1.8);
+      const taper = baseWidth + (tipWidth - baseWidth) * t;
+      const swell = Math.sin(Math.max(0, (1 - t) * Math.PI)) * 4.2;
+      widths.push(Math.max(8, taper + swell * (0.75 + p * 0.2)));
     }
 
     shared.drawFacetedRibbon(ctx, nodes, widths, [
@@ -37,10 +44,10 @@
       ctx,
       [
         { x: 0, y: 0 },
-        { x: 22, y: -8 },
-        { x: 36, y: -1 },
-        { x: 24, y: 11 },
-        { x: 8, y: 9 }
+        { x: 30, y: -12 },
+        { x: 54, y: -2 },
+        { x: 32, y: 18 },
+        { x: 12, y: 14 }
       ],
       "#8aa03b"
     );
@@ -48,10 +55,10 @@
     shared.fillPolygon(
       ctx,
       [
-        { x: 3, y: 1 },
-        { x: 16, y: -2 },
-        { x: 27, y: 3 },
-        { x: 14, y: 8 }
+        { x: 5, y: 2 },
+        { x: 20, y: -4 },
+        { x: 36, y: 2 },
+        { x: 18, y: 12 }
       ],
       "#748b30"
     );
@@ -61,22 +68,44 @@
 
   function drawFacetPetals(ctx, scale) {
     const petalPalette = ["#ffd253", "#ffbe33", "#ffcf4a", "#f8b22d", "#ffca42", "#f2a02d"];
-    for (let index = 0; index < 14; index += 1) {
-      const angle = (Math.PI * 2 * index) / 14;
+    const outerCount = 18;
+    const innerCount = 10;
+
+    for (let index = 0; index < outerCount; index += 1) {
+      const angle = (Math.PI * 2 * index) / outerCount;
       ctx.save();
       ctx.rotate(angle);
       ctx.scale(scale, scale);
       shared.fillPolygon(
         ctx,
         [
-          { x: 0, y: -8 },
-          { x: 10, y: -4 },
-          { x: 22, y: 0 },
-          { x: 10, y: 5 },
-          { x: 0, y: 8 },
-          { x: 3, y: 0 }
+          { x: 0, y: -10 },
+          { x: 12, y: -5 },
+          { x: 28, y: 0 },
+          { x: 12, y: 6 },
+          { x: 0, y: 10 },
+          { x: 4, y: 2 }
         ],
         petalPalette[index % petalPalette.length]
+      );
+      ctx.restore();
+    }
+
+    for (let index = 0; index < innerCount; index += 1) {
+      const angle = (Math.PI * 2 * index) / innerCount + Math.PI / innerCount;
+      ctx.save();
+      ctx.rotate(angle);
+      ctx.scale(scale * 0.8, scale * 0.8);
+      shared.fillPolygon(
+        ctx,
+        [
+          { x: 0, y: -6 },
+          { x: 8, y: -3 },
+          { x: 16, y: 0 },
+          { x: 8, y: 4 },
+          { x: 0, y: 6 }
+        ],
+        petalPalette[(index + 2) % petalPalette.length]
       );
       ctx.restore();
     }
@@ -122,16 +151,23 @@
     if (p > 0.34) {
       const leafProgress = shared.easeOutCubic((p - 0.34) / 0.66);
       const anchor = stem.nodes[5];
-      drawFacetLeaf(ctx, anchor.x + 2, anchor.y + 14, 0.72, 0.46 + leafProgress * 0.86);
+      drawFacetLeaf(ctx, anchor.x + 2, anchor.y + 14, 0.72, 0.76 + leafProgress * 1.12);
+    }
+
+    if (p > 0.46) {
+      const leafProgress = shared.easeOutCubic((p - 0.46) / 0.54);
+      const anchor = stem.nodes[7];
+      drawFacetLeaf(ctx, anchor.x - 4, anchor.y + 20, -0.38, 0.68 + leafProgress * 1.04);
     }
 
     if (p > 0.5) {
       const bloomProgress = shared.easeOutCubic((p - 0.5) / 0.5);
       ctx.save();
-      ctx.translate(stem.length * 0.84, -10);
-      ctx.scale(0.46 + bloomProgress * 0.62, 0.46 + bloomProgress * 0.62);
+      const tip = stem.nodes[stem.nodes.length - 1];
+      ctx.translate(tip.x, tip.y);
+      ctx.scale(0.6 + bloomProgress * 0.9, 0.6 + bloomProgress * 0.9);
       drawFacetPetals(ctx, 1);
-      drawFacetDisk(ctx, 12);
+      drawFacetDisk(ctx, 16);
       ctx.restore();
     }
   }

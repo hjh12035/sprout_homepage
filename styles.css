@@ -319,6 +319,8 @@ body {
   height: 440px;
   pointer-events: none;
   transition: opacity 180ms ease, filter 180ms ease;
+  opacity: 0.08;
+  filter: grayscale(1) saturate(0) brightness(0.72);
 }
 
 .hint-left {
@@ -332,8 +334,7 @@ body {
   left: 0;
   top: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.08;
-  filter: grayscale(1) saturate(0) brightness(0.68) blur(2.4px);
+  filter: grayscale(1) saturate(0) brightness(0.72) blur(2.8px);
 }
 
 .hint-right {
@@ -347,8 +348,7 @@ body {
   right: 0;
   top: 50%;
   transform: translate(50%, -50%);
-  opacity: 0.08;
-  filter: grayscale(1) saturate(0) brightness(0.78) blur(3px);
+  filter: grayscale(1) saturate(0) brightness(0.72) blur(3px);
 }
 
 .hint-up {
@@ -362,8 +362,7 @@ body {
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.08;
-  filter: grayscale(1) saturate(0) brightness(0.62) blur(3.4px);
+  filter: grayscale(1) saturate(0) brightness(0.72) blur(3.4px);
 }
 
 .hint-down {
@@ -377,8 +376,7 @@ body {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  opacity: 0.08;
-  filter: grayscale(1) saturate(0) brightness(0.84) blur(4px);
+  filter: grayscale(1) saturate(0) brightness(0.72) blur(3.8px);
 }
 
 .hint.is-active {
