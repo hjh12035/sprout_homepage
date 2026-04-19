@@ -24,156 +24,229 @@ const growthCreatePlantRenderer =
       });
 
 const PAGES = {
-  home: {
-    eyebrow: "Seiki Home",
-    title: "生机主页",
-    subtitle:
-      "把植物的生长轨迹变成页面切换语言。拖拽边缘虚影时，主题色与枝叶一同显形，再像呼吸一样淡出。",
-    panels: [
+  "home": {
+    "eyebrow": "Seiki Home",
+    "title": "生机主页",
+    "subtitle": "把植物的生长轨迹变成页面切换语言。拖拽边缘虚影时，主题色与枝叶一同显形，再像呼吸一样淡出。",
+    "panels": [
       {
-        heading: "空间叙事",
-        text: "每个方向是一种植物人格：向左边缘拖向右、向右边缘拖向左、上边缘向下、下边缘向上。"
+        "heading": "空间叙事",
+        "text": "每个方向是一种植物人格：向左边缘拖向右、向右边缘拖向左、上边缘向下、下边缘向上。"
       },
       {
-        heading: "交互节奏",
-        text: "拖拽到中心线会完成内容切换；未过线释放自动回缩，过线释放自动完成翻页。下边缘上拖进入向日葵主题翻页。"
+        "heading": "交互节奏",
+        "text": "拖拽到中心线会完成内容切换；未过线释放自动回缩，过线释放自动完成翻页。下边缘上拖进入向日葵主题翻页。"
       }
     ]
   },
-  about: {
-    eyebrow: "About",
-    title: "植物语言",
-    subtitle:
-      "以低多边形块面塑造植物的骨架感，保留折面、切角和单色系渐进层次。",
-    panels: [
+  "about": {
+    "eyebrow": "About",
+    "title": "植物语言",
+    "subtitle": "以低多边形块面塑造植物的骨架感，保留折面、切角和单色系渐进层次。",
+    "panels": [
       {
-        heading: "形态原则",
-        text: "叶片采用折平面，茎干由角柱分节堆叠，拒绝真实纹理，保持矢量平涂。"
+        "heading": "形态原则",
+        "text": "叶片采用折平面，茎干由角柱分节堆叠，拒绝真实纹理，保持矢量平涂。"
       },
       {
-        heading: "方向交互",
-        text: "此页可向右边缘拖向左返回主页，也可向左边缘拖向右进入银杏主题页。"
+        "heading": "方向交互",
+        "text": "此页可向右边缘拖向左返回主页，也可向左边缘拖向右进入银杏主题页。"
       }
     ]
   },
-  ginkgo: {
-    eyebrow: "Ginkgo",
-    title: "银杏折扇",
-    subtitle:
-      "左翻进入暖金银杏场域：扇叶以低多边形折面展开，细枝分叉从边缘伸入，叶片沿拖拽方向斜向下飘落。",
-    panels: [
+  "ginkgo": {
+    "eyebrow": "Ginkgo",
+    "title": "银杏折扇",
+    "subtitle": "左翻进入暖金银杏场域：扇叶以低多边形折面展开，细枝分叉从边缘伸入，叶片沿拖拽方向斜向下飘落。",
+    "panels": [
       {
-        heading: "形态语法",
-        text: "银杏叶采用宽弧扇形与中心缺刻结构，叶脉用接近叶色的浅线暗示放射分叉，保持几何风格而不突兀。"
+        "heading": "形态语法",
+        "text": "银杏叶采用宽弧扇形与中心缺刻结构，叶脉用接近叶色的浅线暗示放射分叉，保持几何风格而不突兀。"
       },
       {
-        heading: "导航关系",
-        text: "在本页向右边缘拖向左可返回“植物语言”页；拖拽时枝干与叶片同步显影，并保持暖金到褐金的层次。"
+        "heading": "导航关系",
+        "text": "在本页向右边缘拖向左可返回“植物语言”页；拖拽时枝干与叶片同步显影，并保持暖金到褐金的层次。"
       }
     ]
   },
-  gallery: {
-    eyebrow: "Gallery",
-    title: "枝影画廊",
-    subtitle:
-      "樱花花枝以棱角枝节延展，花团在拖拽进度中分批显影，形成带结构感的绽放。",
-    panels: [
+  "gallery": {
+    "eyebrow": "Gallery",
+    "title": "枝影画廊",
+    "subtitle": "樱花花枝以棱角枝节延展，花团在拖拽进度中分批显影，形成带结构感的绽放。",
+    "panels": [
       {
-        heading: "色彩绑定",
-        text: "樱枝方向绑定粉红系主题色，色层先聚合后消隐，确保翻页阶段有明确视觉峰值。"
+        "heading": "色彩绑定",
+        "text": "樱枝方向绑定粉红系主题色，色层先聚合后消隐，确保翻页阶段有明确视觉峰值。"
       },
       {
-        heading: "场景留白",
-        text: "背景维持高留白与轻雾块，强调植物生长路径在过渡中的运动质感。"
+        "heading": "场景留白",
+        "text": "背景维持高留白与轻雾块，强调植物生长路径在过渡中的运动质感。"
       }
     ]
   },
-  poem: {
-    eyebrow: "Poem",
-    title: "薰衣草短诗",
-    subtitle:
-      "上翻进入轻紫场域，花穗沿轴线渐次点亮，像风把句子一节一节推向远处。",
-    panels: [
+  "poem": {
+    "eyebrow": "Poem",
+    "title": "薰衣草短诗",
+    "subtitle": "上翻进入轻紫场域，花穗沿轴线渐次点亮，像风把句子一节一节推向远处。",
+    "panels": [
       {
-        heading: "动态结构",
-        text: "主茎先长，花穗后现。每一组花穗都由几何菱形构成，遵循低多边形平涂语法。"
+        "heading": "动态结构",
+        "text": "主茎先长，花穗后现。每一组花穗都由几何菱形构成，遵循低多边形平涂语法。"
       },
       {
-        heading: "导航关系",
-        text: "此页可从下边缘向上拖返回主页，也支持方向键快速切换。"
+        "heading": "导航关系",
+        "text": "此页可从下边缘向上拖返回主页，也支持方向键快速切换。"
       }
     ]
   },
-  sunflower: {
-    eyebrow: "Sunflower",
-    title: "向日葵",
-    subtitle:
-      "这是主页下方的主题页，橙黄单色系以几何向日葵为主视觉，保留低多边形拼贴与平涂层次。",
-    panels: [
+  "sunflower": {
+    "eyebrow": "Sunflower",
+    "title": "向日葵",
+    "subtitle": "这是主页下方的主题页，橙黄单色系以几何向日葵为主视觉，保留低多边形拼贴与平涂层次。",
+    "panels": [
       {
-        heading: "主题方向",
-        text: "从主页下边缘上拖进入该页，橙黄遮罩与向日葵生长同步出现，形成暖色翻页峰值。"
+        "heading": "主题方向",
+        "text": "从主页下边缘上拖进入该页，橙黄遮罩与向日葵生长同步出现，形成暖色翻页峰值。"
       },
       {
-        heading: "导航关系",
-        text: "在本页从上边缘下拖可回到主页；继续从下边缘上拖可进入竹子主题翻页。"
+        "heading": "导航关系",
+        "text": "在本页从上边缘下拖可回到主页；继续从下边缘上拖可进入竹子主题翻页。"
       }
     ]
   },
-  bamboo: {
-    eyebrow: "Bamboo",
-    title: "竹影风廊",
-    subtitle:
-      "向下翻入竹子场域，节间与叶片以低多边形折面层叠生长，形成更克制清爽的东方植物节奏。",
-    panels: [
+  "bamboo": {
+    "eyebrow": "Bamboo",
+    "title": "竹影风廊",
+    "subtitle": "向下翻入竹子场域，节间与叶片以低多边形折面层叠生长，形成更克制清爽的东方植物节奏。",
+    "panels": [
       {
-        heading: "形态语言",
-        text: "竹秆强调节间与分段粗细变化，叶片以细长折片成簇展开，保持几何平涂而不丢失竹子的挺拔感。"
+        "heading": "形态语言",
+        "text": "竹秆强调节间与分段粗细变化，叶片以细长折片成簇展开，保持几何平涂而不丢失竹子的挺拔感。"
       },
       {
-        heading: "导航关系",
-        text: "在本页从上边缘下拖可回到向日葵翻页场，交互阈值、回拉与覆盖逻辑与其他方向保持一致。"
+        "heading": "导航关系",
+        "text": "在本页从上边缘下拖可回到向日葵翻页场，交互阈值、回拉与覆盖逻辑与其他方向保持一致。"
+      }
+    ]
+  },
+  "new_page": {
+    "eyebrow": "New",
+    "title": "新页面",
+    "subtitle": "这里是新页面描述。",
+    "panels": [
+      {
+        "heading": "模块一",
+        "text": "描述"
+      },
+      {
+        "heading": "模块二",
+        "text": "描述"
       }
     ]
   }
 };
 
 const ROUTES = {
-  home: {
-    left: { targetPage: "about", motif: "sprout", themeColor: "#9FD97A" },
-    right: { targetPage: "gallery", motif: "cherry_branch", themeColor: "#F2A7C2" },
-    up: { targetPage: "poem", motif: "lavender", themeColor: "#A788E8" },
-    down: { targetPage: "sunflower", motif: "sunflower", themeColor: "#F2A02D" }
+  "home": {
+    "left": {
+      "targetPage": "about",
+      "motif": "sprout",
+      "themeColor": "#9FD97A"
+    },
+    "up": {
+      "targetPage": "poem",
+      "motif": "lavender",
+      "themeColor": "#A788E8"
+    },
+    "down": {
+      "targetPage": "sunflower",
+      "motif": "sunflower",
+      "themeColor": "#F2A02D"
+    }
   },
-  about: {
-    left: { targetPage: "ginkgo", motif: "ginkgo", themeColor: "#D9A73A" },
-    right: { targetPage: "home", motif: "sprout", themeColor: "#9FD97A" }
+  "about": {
+    "left": {
+      "targetPage": "ginkgo",
+      "motif": "ginkgo",
+      "themeColor": "#D9A73A"
+    },
+    "right": {
+      "targetPage": "home",
+      "motif": "sprout",
+      "themeColor": "#9FD97A"
+    }
   },
-  ginkgo: {
-    right: { targetPage: "about", motif: "ginkgo", themeColor: "#D9A73A" }
+  "ginkgo": {
+    "right": {
+      "targetPage": "about",
+      "motif": "ginkgo",
+      "themeColor": "#D9A73A"
+    },
+    "up": {
+      "targetPage": "new_page",
+      "motif": "cherry_branch",
+      "themeColor": "#F2A7C2"
+    }
   },
-  gallery: {
-    left: { targetPage: "home", motif: "cherry_branch", themeColor: "#F2A7C2" }
+  "gallery": {
+    "left": {
+      "targetPage": "home",
+      "motif": "cherry_branch",
+      "themeColor": "#F2A7C2"
+    }
   },
-  poem: {
-    down: { targetPage: "home", motif: "lavender", themeColor: "#A788E8" }
+  "poem": {
+    "down": {
+      "targetPage": "home",
+      "motif": "lavender",
+      "themeColor": "#A788E8"
+    }
   },
-  sunflower: {
-    up: { targetPage: "home", motif: "sunflower", themeColor: "#F2A02D" },
-    down: { targetPage: "bamboo", motif: "bamboo", themeColor: "#6FA85E" }
+  "sunflower": {
+    "up": {
+      "targetPage": "home",
+      "motif": "sunflower",
+      "themeColor": "#F2A02D"
+    },
+    "down": {
+      "targetPage": "bamboo",
+      "motif": "bamboo",
+      "themeColor": "#6FA85E"
+    }
   },
-  bamboo: {
-    up: { targetPage: "sunflower", motif: "bamboo", themeColor: "#6FA85E" }
+  "bamboo": {
+    "up": {
+      "targetPage": "sunflower",
+      "motif": "bamboo",
+      "themeColor": "#6FA85E"
+    }
+  },
+  "new_page": {
+    "right": {
+      "targetPage": "poem",
+      "motif": "ginkgo",
+      "themeColor": "#D9A73A"
+    },
+    "left": {
+      "targetPage": "gallery",
+      "motif": "sunflower",
+      "themeColor": "#F2A02D"
+    },
+    "up": {
+      "targetPage": "bamboo",
+      "motif": "lavender",
+      "themeColor": "#A788E8"
+    }
   }
 };
 
 const MOTIF_LABEL = {
-  sprout: "嫩芽",
-  ginkgo: "银杏",
-  cherry_branch: "樱枝",
-  lavender: "薰衣草",
-  sunflower: "向日葵",
-  bamboo: "竹子"
+  "sprout": "嫩芽",
+  "ginkgo": "银杏",
+  "cherry_branch": "樱枝",
+  "lavender": "薰衣草",
+  "sunflower": "向日葵",
+  "bamboo": "竹子"
 };
 
 const DRAG_PROMPT = {

@@ -100,6 +100,7 @@ This workspace now includes a Python visual editor for page graph management:
 - Editing operations write directly to app.js.
 - Deleting a page also removes incoming routes that target that page.
 - If you edit app.js manually, click "从文件重新加载" inside the editor.
+- In route editing, motif is selected from a dropdown and themeColor is auto-filled from motif.
 
 ## Deploy To GitHub Pages
 

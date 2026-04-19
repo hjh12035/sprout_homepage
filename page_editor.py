@@ -15,6 +15,14 @@ EDGE_COLORS = {
     "up": "#7F88CC",
     "down": "#6FA85E"
 }
+DEFAULT_THEME_BY_MOTIF = {
+    "sprout": "#9FD97A",
+    "cherry_branch": "#F2A7C2",
+    "lavender": "#A788E8",
+    "sunflower": "#F2A02D",
+    "ginkgo": "#D9A73A",
+    "bamboo": "#6FA85E"
+}
 
 
 def find_matching_brace(text: str, start_index: int) -> int:
@@ -154,6 +162,43 @@ def panel_list_from_text(value: str) -> list[dict[str, str]]:
             heading, text = raw, ""
         rows.append({"heading": heading.strip(), "text": text.strip()})
     return rows
+
+
+def collect_motif_theme_map(routes: dict[str, Any]) -> dict[str, str]:
+    theme_map = dict(DEFAULT_THEME_BY_MOTIF)
+    for edge_map in routes.values():
+        if not isinstance(edge_map, dict):
+            continue
+        for route in edge_map.values():
+            if not isinstance(route, dict):
+                continue
+            motif = str(route.get("motif", "")).strip()
+            theme = str(route.get("themeColor", "")).strip()
+            if motif and theme:
+                theme_map[motif] = theme
+    return theme_map
+
+
+def collect_motif_options(
+    routes: dict[str, Any],
+    motif_label: dict[str, str],
+    current_motif: str
+) -> list[str]:
+    motifs = set(motif_label.keys())
+    motifs.update(DEFAULT_THEME_BY_MOTIF.keys())
+    motifs.add(current_motif)
+
+    for edge_map in routes.values():
+        if not isinstance(edge_map, dict):
+            continue
+        for route in edge_map.values():
+            if not isinstance(route, dict):
+                continue
+            motif = str(route.get("motif", "")).strip()
+            if motif:
+                motifs.add(motif)
+
+    return sorted(value for value in motifs if value)
 
 
 def ensure_flash():
@@ -309,17 +354,25 @@ def main() -> None:
         default_target = str(current_route.get("targetPage", target_options[0] if target_options else ""))
         target_index = target_options.index(default_target) if default_target in target_options else 0
 
-        with st.form("upsert_route_form"):
-            target_page = st.selectbox("To 页面", options=target_options, index=target_index)
-            motif = st.text_input("motif", value=str(current_route.get("motif", "sprout")))
-            theme = st.text_input("themeColor", value=str(current_route.get("themeColor", "#9FD97A")))
-            upsert_route_submit = st.form_submit_button("保存连接")
+        current_motif = str(current_route.get("motif", "sprout")).strip() or "sprout"
+        motif_theme_map = collect_motif_theme_map(routes)
+        motif_options = collect_motif_options(routes, motif_label, current_motif)
+        motif_index = motif_options.index(current_motif) if current_motif in motif_options else 0
 
+        target_page = st.selectbox("To 页面", options=target_options, index=target_index, key="route_to")
+        motif = st.selectbox("motif", options=motif_options, index=motif_index, key="route_motif")
+        auto_theme = motif_theme_map.get(
+            motif,
+            str(current_route.get("themeColor", "")).strip() or "#9FD97A"
+        )
+        st.text_input("themeColor（自动，跟随 motif）", value=auto_theme, disabled=True)
+
+        upsert_route_submit = st.button("保存连接", key="save_route")
         if upsert_route_submit:
             routes.setdefault(from_page, {})[direction] = {
                 "targetPage": target_page,
                 "motif": motif.strip() or "sprout",
-                "themeColor": theme.strip() or "#9FD97A"
+                "themeColor": auto_theme
             }
             motif_name = routes[from_page][direction]["motif"]
             motif_label.setdefault(motif_name, motif_name)
