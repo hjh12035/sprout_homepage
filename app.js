@@ -115,8 +115,24 @@ const PAGES = {
         text: "从主页下边缘上拖进入该页，橙黄遮罩与向日葵生长同步出现，形成暖色翻页峰值。"
       },
       {
-        heading: "回到主页",
-        text: "在本页从上边缘下拖即可回到主页，交互阈值与回拉逻辑与其他方向保持一致。"
+        heading: "导航关系",
+        text: "在本页从上边缘下拖可回到主页；继续从下边缘上拖可进入竹子主题翻页。"
+      }
+    ]
+  },
+  bamboo: {
+    eyebrow: "Bamboo",
+    title: "竹影风廊",
+    subtitle:
+      "向下翻入竹子场域，节间与叶片以低多边形折面层叠生长，形成更克制清爽的东方植物节奏。",
+    panels: [
+      {
+        heading: "形态语言",
+        text: "竹秆强调节间与分段粗细变化，叶片以细长折片成簇展开，保持几何平涂而不丢失竹子的挺拔感。"
+      },
+      {
+        heading: "导航关系",
+        text: "在本页从上边缘下拖可回到向日葵翻页场，交互阈值、回拉与覆盖逻辑与其他方向保持一致。"
       }
     ]
   }
@@ -143,7 +159,11 @@ const ROUTES = {
     down: { targetPage: "home", motif: "lavender", themeColor: "#A788E8" }
   },
   sunflower: {
-    up: { targetPage: "home", motif: "sunflower", themeColor: "#F2A02D" }
+    up: { targetPage: "home", motif: "sunflower", themeColor: "#F2A02D" },
+    down: { targetPage: "bamboo", motif: "bamboo", themeColor: "#6FA85E" }
+  },
+  bamboo: {
+    up: { targetPage: "sunflower", motif: "bamboo", themeColor: "#6FA85E" }
   }
 };
 
@@ -152,7 +172,8 @@ const MOTIF_LABEL = {
   ginkgo: "银杏",
   cherry_branch: "樱枝",
   lavender: "薰衣草",
-  sunflower: "向日葵"
+  sunflower: "向日葵",
+  bamboo: "竹子"
 };
 
 const DRAG_PROMPT = {

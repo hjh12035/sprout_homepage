@@ -1,7 +1,7 @@
 (function () {
   const shared = window.PlantGrowthShared;
 
-  function drawFacetLeaf(ctx, x, y, scale, rotate, colorA, colorB) {
+  function drawCotyledonLeaf(ctx, x, y, scale, rotate, colorA, colorB) {
     ctx.save();
     ctx.translate(x, y);
     ctx.rotate(rotate);
@@ -11,10 +11,12 @@
       ctx,
       [
         { x: 0, y: 0 },
-        { x: 18, y: -6 },
-        { x: 30, y: -1 },
-        { x: 20, y: 8 },
-        { x: 6, y: 7 }
+        { x: 11, y: -7 },
+        { x: 25, y: -9 },
+        { x: 38, y: -4 },
+        { x: 34, y: 6 },
+        { x: 18, y: 10 },
+        { x: 5, y: 6 }
       ],
       colorA
     );
@@ -22,10 +24,10 @@
     shared.fillPolygon(
       ctx,
       [
-        { x: 3, y: 1 },
-        { x: 16, y: -2 },
-        { x: 24, y: 2 },
-        { x: 12, y: 6 }
+        { x: 8, y: 2 },
+        { x: 18, y: -3 },
+        { x: 26, y: -1 },
+        { x: 16, y: 4 }
       ],
       colorB
     );
@@ -33,98 +35,63 @@
     ctx.restore();
   }
 
-  function drawFacetBud(ctx, color) {
-    shared.fillPolygon(
-      ctx,
-      [
-        { x: 0, y: -14 },
-        { x: 10, y: -4 },
-        { x: 6, y: 14 },
-        { x: -6, y: 14 },
-        { x: -10, y: -4 }
-      ],
-      color
-    );
-  }
-
   function drawSprout(ctx, progress, color, sizeBoost = 1) {
     const p = shared.easeOutCubic(progress);
-    const length = (58 + 230 * p) * sizeBoost;
+    const length = (24 + 120 * p) * sizeBoost;
     const nodes = [];
     const widths = [];
 
-    for (let index = 0; index <= 9; index += 1) {
-      const t = index / 9;
-      const sway = Math.sin(t * 3.4) * (4 + (1 - t) * 2.2) * p;
+    for (let index = 0; index <= 8; index += 1) {
+      const t = index / 8;
+      const sway =
+        (Math.sin(t * Math.PI * 1.55 + 0.18) * (3 + (1 - t) * 1.5) +
+          Math.sin(t * Math.PI * 3.2) * 0.8 -
+          Math.pow(t, 1.22) * 4.6) *
+        p;
       nodes.push({
         x: length * t,
         y: sway
       });
-      widths.push(6 + t * 5.5);
+      widths.push((5.8 - t * 2.9) * (0.92 + p * 0.08));
     }
 
     shared.drawFacetedRibbon(ctx, nodes, widths, [
-      shared.lighten(color, 24),
-      color,
-      shared.darken(color, 10)
+      shared.lighten(color, 78),
+      shared.lighten(color, 62),
+      shared.lighten(color, 46)
     ]);
 
-    if (p > 0.18) {
-      const leafProgress = shared.easeOutCubic((p - 0.18) / 0.82);
-      const anchor = nodes[3];
-      drawFacetLeaf(
-        ctx,
-        anchor.x + 4,
-        anchor.y - 10,
-        0.48 + leafProgress * 1.1,
-        -0.72,
-        shared.lighten(color, 20),
-        shared.darken(color, 8)
-      );
-    }
+    if (p > 0.2) {
+      const leafProgress = shared.easeOutCubic((p - 0.2) / 0.8);
+      const tip = nodes[nodes.length - 1];
+      const leafOuter = shared.lighten(color, 26);
+      const leafInner = shared.lighten(color, 58);
+      const leafScale = (0.22 + leafProgress * 0.56) * sizeBoost;
 
-    if (p > 0.36) {
-      const leafProgress = shared.easeOutCubic((p - 0.36) / 0.64);
-      const anchor = nodes[5];
-      drawFacetLeaf(
-        ctx,
-        anchor.x + 1,
-        anchor.y + 9,
-        0.42 + leafProgress * 1.0,
-        0.76,
-        shared.lighten(color, 16),
-        shared.darken(color, 10)
-      );
-    }
-
-    if (p > 0.56) {
-      const budProgress = shared.easeOutCubic((p - 0.56) / 0.44);
-      ctx.save();
-      ctx.translate(length * 0.76, -8);
-      ctx.scale(0.48 + budProgress * 0.52, 0.48 + budProgress * 0.52);
-      drawFacetBud(ctx, shared.lighten(color, 30));
-      ctx.restore();
+      drawCotyledonLeaf(ctx, tip.x - 1.8, tip.y - 2.2, leafScale, -1.42, leafOuter, leafInner);
+      drawCotyledonLeaf(ctx, tip.x - 1.2, tip.y + 2.6, leafScale * 0.96, 1.34, leafOuter, leafInner);
     }
   }
 
   function drawHint(ctx, color) {
     ctx.save();
-    ctx.translate(8, 10);
-    ctx.scale(0.92, 0.92);
+    const stemNodes = [
+      { x: -10, y: 9 },
+      { x: -7, y: 7 },
+      { x: -3, y: 4 },
+      { x: 1, y: 0 }
+    ];
+    const stemWidths = [3.6, 3.1, 2.6, 2.1];
+    shared.drawFacetedRibbon(ctx, stemNodes, stemWidths, [
+      shared.lighten(color, 78),
+      shared.lighten(color, 62),
+      shared.lighten(color, 46)
+    ]);
 
-    drawFacetBud(ctx, shared.darken(color, 10));
-
-    ctx.save();
-    ctx.translate(-10, 12);
-    ctx.rotate(-0.6);
-    drawFacetLeaf(ctx, 0, 0, 0.72, -0.2, shared.lighten(color, 18), shared.darken(color, 8));
-    ctx.restore();
-
-    ctx.save();
-    ctx.translate(10, 12);
-    ctx.rotate(0.6);
-    drawFacetLeaf(ctx, 0, 0, 0.72, 0.2, shared.lighten(color, 18), shared.darken(color, 8));
-    ctx.restore();
+    const leafOuter = shared.lighten(color, 22);
+    const leafInner = shared.lighten(color, 54);
+    drawCotyledonLeaf(ctx, 2, -2, 0.54, -1.4, leafOuter, leafInner);
+    drawCotyledonLeaf(ctx, 2, 3, 0.52, 1.28, leafOuter, leafInner);
 
     ctx.restore();
   }
